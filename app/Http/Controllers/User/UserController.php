@@ -18,6 +18,11 @@ class UserController extends Controller
         $this->serviceUser = $serviceUser;
     }
 
+    public function index()
+    {
+        return $this->serviceUser->index();
+    }
+
     public function store(UserCreateRequest $userCreateRequest)
     {
         return $this->serviceUser->store($userCreateRequest);

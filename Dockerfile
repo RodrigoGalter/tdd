@@ -1,6 +1,7 @@
 FROM ubuntu:focal
 
 ARG PHP_VERSION=7.4
+ARG DEBIAN_FRONTEND=noninteractive
 
 RUN addgroup --system nginx && \
      adduser --system --home /var/cache/nginx --shell /sbin/nologin nginx
@@ -11,7 +12,6 @@ RUN apt-get update && \
     add-apt-repository ppa:ondrej/php
 
 RUN apt-get update && \
-    apt-get upgrade -y && \
     apt-get install -y \
     cron \
     vim \
@@ -47,7 +47,8 @@ RUN apt-get update && \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     chmod +x /usr/local/bin/composer
 
-RUN pecl install swoole
+RUN pecl install swoole && \
+    pecl install redis
 
 # PHP-FPM
 ADD docker/conf/php.ini /etc/php/${PHP_VERSION}/fpm/php.ini
@@ -69,13 +70,20 @@ ADD docker/scripts/start.sh /usr/bin/start.sh
 
 #RUNNING CRONTAB
 COPY docker/scripts/cron /etc/cron.d/custom-cron
-RUN chmod 0644 /etc/cron.d/custom-cron
-RUN crontab /etc/cron.d/custom-cron
-RUN touch /var/log/cron.log
+RUN chmod 0644 /etc/cron.d/custom-cron && \
+    crontab /etc/cron.d/custom-cron && \
+    touch /var/log/cron.log
 
 # Setup directories
 RUN chmod 755 /usr/bin/start.sh && \
     rm -Rf /var/www/*
+
+# Clear dev extensions and upgrade packages
+RUN apt-get upgrade -y && \
+    apt-get remove -y libsodium-dev && \
+    apt-get remove -y php-dev && \
+    apt-get autoclean && \
+    apt-get autoremove --purge -y
 
 # Copy application
 ADD . /var/www/html/

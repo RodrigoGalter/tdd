@@ -13,14 +13,13 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.5",
         "laravel/framework": "^7.20",
-        "laravel/telescope": "^3.5",
         "laravel/tinker": "^2.4",
         "lucascudo/laravel-pt-br-localization": "^1.1",
         "omniphx/forrest": "^2.8",
-        "predis/predis": "^1.1",
         "swooletw/laravel-swoole": "^2.6"
     },
     "require-dev": {
+        "laravel/telescope": "^3.5",
         "barryvdh/laravel-ide-helper": "^2.7",
         "facade/ignition": "^2.3",
         "fzaninotto/faker": "^1.9.1",

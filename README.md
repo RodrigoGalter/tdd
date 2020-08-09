@@ -1,11 +1,4 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+# Projeto TDD
 
 ## Instalação
 
@@ -30,3 +23,6 @@ Criamos um projeto com a temática Pandemia, iniciamos alguns testes para você 
 outros testes, garantindo assim uma cobertura maior do código criado. Tenha em mente o que deverá ser testado e separar
  o que é unitário e o que é teste de integração.
  
+## Testes
+
+Foram feitos alguns testes de exemplos para que você tenha base para continuar a criar outros testes e assim treinar seus conhecimentos.

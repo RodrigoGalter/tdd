@@ -49,5 +49,4 @@ class ServiceInfection
             return response()->json(['errors' => $exception->getMessage()],403);
         }
     }
-
 }

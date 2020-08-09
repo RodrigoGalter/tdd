@@ -19,6 +19,6 @@ class PathologyTest extends TestCase
     public function test_can_create_pathology()
     {
        $pathology = factory(Pathology::class)->create();
-       $this->assertEquals(1,$pathology->count());
+       $this->assertEquals(1, $pathology->count());
     }
 }

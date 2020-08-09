@@ -30,9 +30,9 @@ class IntegrationUserTest extends TestCase
             'password' => $this->faker->password(20),
         ];
 
-        $this->post("api/v1/user",$atributes);
+        $this->post("api/v1/user", $atributes);
 
-        $this->assertDatabaseHas('users',$atributes);
+        $this->assertDatabaseHas('users', $atributes);
     }
 
 //    /** @test */
@@ -44,7 +44,7 @@ class IntegrationUserTest extends TestCase
 
         $user = factory(User::class)->create();
 
-        $result = $this->post("api/v1/user",$user->toArray());
+        $result = $this->post("api/v1/user", $user->toArray());
         $result->assertStatus(201);
 
     }
@@ -57,7 +57,7 @@ class IntegrationUserTest extends TestCase
 
         $user = factory(User::class)->create();
 
-        $result = $this->put("api/v1/user/{$user->id}",$user->toArray());
+        $result = $this->put("api/v1/user/{$user->id}", $user->toArray());
         $result->assertStatus(202);
     }
 

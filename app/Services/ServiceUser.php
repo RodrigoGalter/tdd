@@ -6,14 +6,20 @@ namespace App\Services;
 
 use App\Models\User;
 use DB;
+use Illuminate\Http\Response;
 
 class ServiceUser
 {
-    private $user;
+    private User $user;
 
     public function  __construct(User $user)
     {
         $this->user = $user;
+    }
+
+    public function index()
+    {
+        return $this->user->get();
     }
 
     public function store($request)
@@ -22,10 +28,14 @@ class ServiceUser
 
             DB::beginTransaction();
 
-            $this->user->create($request->all());
+            $user = $this->user->create($request->all());
 
             DB::commit();
-            return response()->json(["success" => "Registro criado com sucesso"],201);
+            return response()->json([
+                "success" => "Registro criado com sucesso",
+                "data" => compact($user)
+            ], Response::HTTP_CREATED
+            );
 
         }catch (\Exception $exception) {
             DB::rollback();
@@ -33,7 +43,7 @@ class ServiceUser
         }
     }
 
-    public function update($request,$user)
+    public function update($request, $user)
     {
         try {
 

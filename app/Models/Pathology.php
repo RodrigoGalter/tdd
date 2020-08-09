@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Pathology extends Model
 {
     protected $fillable = [
-        'title', 'gravity', 'cured',
+        'title',
+        'gravity',
+        'cured',
     ];
 
     public function users_x_pathology()
@@ -15,4 +17,3 @@ class Pathology extends Model
       return  $this->hasMany(UsersXpathology::class);
     }
 }
-

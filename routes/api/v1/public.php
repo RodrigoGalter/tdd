@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +24,3 @@ Route::namespace('Pathology')->group(function () {
 Route::namespace('Infection')->group(function () {
     Route::resource('/infection','InfectionController');
 });
-
-
-

@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Pathology;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Pathology\PathologyCreateRequest;
 use App\Http\Requests\Pathology\PathologyUpdateRequest;
+use App\Models\Pathology;
 use App\Services\ServicePathology;
 
 class PathologyController extends Controller
@@ -17,6 +18,13 @@ class PathologyController extends Controller
     public function __construct(ServicePathology $servicePathology)
     {
         $this->servicePathology = $servicePathology;
+    }
+
+    public function index()
+    {
+        $pathologies = Pathology::get();
+
+        return response()->json($pathologies);
     }
 
     public function store(PathologyCreateRequest $pathologyCreateRequest)
