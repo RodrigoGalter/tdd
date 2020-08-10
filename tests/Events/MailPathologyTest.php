@@ -3,8 +3,9 @@
 namespace Tests\Events;
 
 use App\Mail\InfectionMail;
+use App\Models\UsersXpathology;
 use Illuminate\Support\Facades\Mail;
-use Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class MailPathologyTest extends TestCase
 {
@@ -16,9 +17,9 @@ class MailPathologyTest extends TestCase
     public function testMailPathology()
     {
         Mail::fake();
-
+        
         // Assert that no mailables were sent...
-        Mail::assertNothingSent();
+        // Mail::assertNothingSent();
 
         $data = [
             'user' => 'John Doe',

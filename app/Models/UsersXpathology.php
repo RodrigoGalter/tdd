@@ -9,17 +9,17 @@ class UsersXpathology extends Model
     protected $table = "users_x_pathologies";
 
     protected $fillable = [
-        'user_id', 'pathology_id',
+        'user_id',
+        'pathology_id',
     ];
 
     public function users()
     {
-      return  $this->belongsTo(User::class,"user_id");
+        return $this->belongsTo(User::class, "user_id");
     }
 
     public function phatology()
     {
         return $this->belongsTo(Pathology::class);
     }
-
 }

@@ -41,7 +41,8 @@ RUN apt-get update && \
     php${PHP_VERSION}-mbstring \
     php${PHP_VERSION}-opcache \
     php${PHP_VERSION}-bcmath \
-    php-dev
+    php-dev \
+    phpunit
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
@@ -54,7 +55,6 @@ RUN pecl install swoole && \
 ADD docker/conf/php.ini /etc/php/${PHP_VERSION}/fpm/php.ini
 ADD docker/conf/php.ini /etc/php/${PHP_VERSION}/cli/php.ini
 ADD docker/conf/www.conf /etc/php/${PHP_VERSION}/fpm/pool.d/www.conf
-
 
 # NGINX config files
 ADD docker/conf/nginx.conf /etc/nginx/nginx.conf
