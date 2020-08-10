@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0475b6b-b8f6-48f7-825b-8018b99de712" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/InfectionMail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/InfectionMail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/ServicePathology.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ServicePathology.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Integration/IntegrationUserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Integration/IntegrationUserTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/PathologyTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/PathologyTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/UserServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/UserServiceTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/UserTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Events/MailPathologyTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Events/MailPathologyTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +171,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1597064314330</updated>
-      <workItem from="1597064315475" duration="2013000" />
+      <workItem from="1597064315475" duration="2157000" />
     </task>
     <servers />
   </component>

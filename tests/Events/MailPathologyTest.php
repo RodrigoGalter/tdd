@@ -13,7 +13,7 @@ class MailPathologyTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    public function testMailPathology()
     {
         Mail::fake();
 
