@@ -2,16 +2,16 @@
 
 namespace Tests\Integration;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-
 use Tests\TestCase;
-use App\Models\User;
 
 class IntegrationUserTest extends TestCase
 {
-    use WithFaker,RefreshDatabase,DatabaseMigrations;
+    use WithFaker, RefreshDatabase, DatabaseMigrations;
+
     /**
      * A basic unit test example.
      *
@@ -69,7 +69,7 @@ class IntegrationUserTest extends TestCase
 
         $user = factory(User::class)->create();
 
-        $result = $this->delete("api/v1/user/{$user->id}",$user->toArray());
+        $result = $this->delete("api/v1/user/{$user->id}", $user->toArray());
         $result->assertStatus(202);
     }
 }

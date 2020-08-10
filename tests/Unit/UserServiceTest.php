@@ -2,27 +2,25 @@
 
 namespace Tests\Unit;
 
-use App\Http\Controllers\User\UserController;
-use App\Http\Requests\User\UserCreateRequest;
 use App\Models\User;
-
 use App\Services\ServiceUser;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Http\Request;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Validation\ValidationException;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Http\Request;
+use Tests\TestCase;
+
 class UserServiceTest extends TestCase
 {
-    use WithFaker,DatabaseMigrations,RefreshDatabase;
+    use WithFaker, DatabaseMigrations, RefreshDatabase;
+
     /**
      * A basic unit test example.
      *
      * @return void
      */
 
-    /** @test  */
+    /** @test */
 
     public function test_it_can_create_service_user()
     {
@@ -38,17 +36,17 @@ class UserServiceTest extends TestCase
 
         $userService = app(ServiceUser::class);
         $result = $userService->store($request);
-        $this->assertEquals(201,$result->status());
+        $this->assertEquals(201, $result->status());
 
     }
 
-    /** @test  */
+    /** @test */
 
     public function a_users_required_name()
     {
         $user = factory(User::class)->raw(['name' => '']);
 
-        $this->post("api/v1/user",$user)->assertSessionHasErrors('name');
+        $this->post("api/v1/user", $user)->assertSessionHasErrors('name');
     }
 
     /** @test */
@@ -57,7 +55,7 @@ class UserServiceTest extends TestCase
     {
         $user = factory(User::class)->raw(['email' => '']);
 
-        $this->post("api/v1/user",[])->assertSessionHasErrors('email');
+        $this->post("api/v1/user", [])->assertSessionHasErrors('email');
     }
 
     /** @test */
@@ -66,6 +64,6 @@ class UserServiceTest extends TestCase
     {
         $user = factory(User::class)->raw(['password' => '']);
 
-        $this->post("api/v1/user",[])->assertSessionHasErrors('password');
+        $this->post("api/v1/user", [])->assertSessionHasErrors('password');
     }
 }

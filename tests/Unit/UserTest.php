@@ -2,16 +2,16 @@
 
 namespace Tests\Unit;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-
 use Tests\TestCase;
-use App\Models\User;
 
 class UserTest extends TestCase
 {
-    use WithFaker,RefreshDatabase,DatabaseMigrations;
+    use WithFaker, RefreshDatabase, DatabaseMigrations;
+
     /**
      * A basic unit test example.
      *

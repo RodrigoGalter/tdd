@@ -5,13 +5,14 @@ namespace App\Services;
 
 
 use App\Models\Pathology;
-use DB;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 class ServicePathology
 {
     private Pathology $pathology;
 
-    public function  __construct(Pathology $pathology)
+    public function __construct(Pathology $pathology)
     {
         $this->pathology = $pathology;
     }
@@ -25,15 +26,15 @@ class ServicePathology
             $this->pathology->create($request->all());
 
             DB::commit();
-            return response()->json(["success" => "Registro criado com sucesso"],201);
+            return response()->json(["success" => "Registro criado com sucesso"], Response::HTTP_CREATED);
 
-        }catch (\Exception $exception) {
+        } catch (\Exception $exception) {
             DB::rollback();
-            return response()->json(['errors' => $exception->getMessage()],403);
+            return response()->json(['errors' => $exception->getMessage()], Response::HTTP_FORBIDDEN);
         }
     }
 
-    public function update($request,$pathology)
+    public function update($request, $pathology)
     {
         try {
 
@@ -42,17 +43,16 @@ class ServicePathology
             $this->pathology->find($pathology)->update($request->all());
 
             DB::commit();
-            return response()->json(["success" => "Registro atualizado com sucesso"],202);
+            return response()->json(["success" => "Registro atualizado com sucesso"], Response::HTTP_ACCEPTED);
 
-        }catch (\Exception $exception) {
+        } catch (\Exception $exception) {
             DB::rollback();
-            return response()->json(['errors' => $exception->getMessage()],403);
+            return response()->json(['errors' => $exception->getMessage()], Response::HTTP_FORBIDDEN);
         }
     }
 
     public function destroy($pathololy)
     {
-
         try {
 
             DB::beginTransaction();
@@ -63,12 +63,11 @@ class ServicePathology
             $result->delete();
 
             DB::commit();
-            return response()->json(["success" => "Registro removido com sucesso"],202);
+            return response()->json(["success" => "Registro removido com sucesso"], Response::HTTP_NO_CONTENT);
 
-        }catch (\Exception $exception) {
+        } catch (\Exception $exception) {
             DB::rollback();
-            return response()->json(['errors' => $exception->getMessage()],403);
+            return response()->json(['errors' => $exception->getMessage()], Response::HTTP_FORBIDDEN);
         }
     }
-
 }

@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
@@ -16,7 +15,7 @@ class InfectionMail extends Mailable
     /**
      * Create a new message instance.
      *
-     * @return void
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -30,6 +29,9 @@ class InfectionMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.mail');
+        return $this->to(env('EMAIL_NOTIFICATION'))
+            ->subject('Novo usuário infectado')
+            ->view('views.mail')
+            ->with($this->data);
     }
 }
